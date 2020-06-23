@@ -4,6 +4,11 @@
   <artifactId>RecipeGeneratorProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <properties>
+		<java.version>1.8</java.version>
+		<downloadSources>true</downloadSources>
+		<downloadJavadocs>true</downloadJavadocs>
+	</properties>
   <dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -30,9 +35,9 @@
 			<version>3.3.6</version>
 		</dependency>
 		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>1.9.1</version>
+    		<groupId>org.webjars</groupId>
+    		<artifactId>popper.js</artifactId>
+    		<version>1.12.9-1</version>
 		</dependency>
 
 		<dependency>
@@ -40,12 +45,16 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.0.2.Final</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+		<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.20</version>
+</dependency>
 	</dependencies>
   
   <build>
@@ -67,6 +76,7 @@
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
 					<configuration>
+					 <port>8081</port>
 						<path>/</path>
 						<contextReloadable>true</contextReloadable>
 					</configuration>
