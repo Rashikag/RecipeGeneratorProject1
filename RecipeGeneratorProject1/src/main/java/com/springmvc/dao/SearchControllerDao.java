@@ -48,15 +48,15 @@ public class SearchControllerDao{
 				
 				});
 	} 
-/*	public String validateRecipeName(String recipeTitle) {
+    /* public String validateRecipeName(String recipeTitle) {
 
-        String sql = "select details from recipe where recipe_title=?";
+        String sql = "select details from recipe where recipe_title='" + recipeTitle + "'";
 
         return jdbcTemplate.queryForObject(
-                sql, new Object[]{recipeTitle}, String.class);
+                sql, String.class);
 
-    }*/
-	 public String validateRecipeName(String recipeTitle) {
+    } */
+	public Recipe validateRecipeName(String recipeTitle) {
 		// TODO Auto-generated method stub
 		List<Recipe> recipeList=new ArrayList<>();
 		//Recipe recipe=new Recipe();
@@ -64,9 +64,18 @@ public class SearchControllerDao{
 		for(Recipe r:recipeList)
 		{
 			if(r.getRecipeTitle().equals(recipeTitle))
-		return r.getDetails();
+		return r;
 		}
 		return null;
 		
 	} 
+
+	/*public String validateRecipeName(String recipeTitle) {
+		// TODO Auto-generated method stub
+		 String sql = "select details from recipe where recipe_title='" + recipeTitle + "'";
+
+	        return jdbcTemplate.queryForObject(
+	                sql, String.class);
+		
+	}*/
 }
