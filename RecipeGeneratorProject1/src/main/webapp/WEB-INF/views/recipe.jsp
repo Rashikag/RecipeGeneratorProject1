@@ -81,31 +81,16 @@ padding:10px 70px;
   </div><!-- /.container-fluid -->
   </nav>
   <div class="container">
-  <label for="recipe_name" class="recipe">Chickpea Salad</label>
+  <form action="/recipe" method="POST">
+ <!--  <label for="recipe_name" class="recipe">Chickpea Salad</label> -->
+  recipe<input class=" recipe " name="recipeTitle" type="text" />
+  <input class="recipe " type="submit" value="search"/>
   <table>
   <tr>
   <th>
   <textarea id="details" name="details" class="jumbotron details" rows="25" cols="60">
-  •	1 tablespoon oil
-•	1 onion, chopped
-•	1 stalk celery, chopped
-•	3 cloves garlic, minced
-•	1 teaspoon salt
-•	¼ teaspoon pepper
-•	2 tablespoons tomato paste
-•	28 oz crushed tomato(795 g), 2 cans
-•	6 cups vegetable broth(1 ½ L)
-
-Instructions
-1.	Combine oil, onion, celery, and garlic over medium heat in a large pot. Sauté for 3 minutes until onions are translucent.
-2.	Add salt, pepper, tomato paste, basil, crushed tomatoes, broth, baking soda, and thyme. Bring to a boil.
-3.	Lower heat and cover, simmering for 15 minutes.
-4.	Uncover and remove thyme.
-5.	Use an immersion or countertop blender to blend the soup until smooth.
-6.	Allow to cool 2 minutes and serve topped with basil.
-  
-  </textarea>
-  </div>
+  ${recipeDetails}
+ </textarea>
   </th>
   <th>
   <div>
@@ -116,6 +101,8 @@ Instructions
     <button class="btn btn-success mail">Take to mail</button>
     </tr>
   </table>
+  </form>
+  </div>
   <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"></script>

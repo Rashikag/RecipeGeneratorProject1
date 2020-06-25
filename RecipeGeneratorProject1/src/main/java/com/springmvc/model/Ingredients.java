@@ -1,9 +1,12 @@
 package com.springmvc.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
+@Entity
+@Table(name="ingredients")
 public class Ingredients {
 //ngredient_name,Ingredient_type,Category
 	@Id
@@ -51,6 +54,11 @@ public class Ingredients {
 	}
 	public void setCategory(int category) {
 		this.category = category;
+	}
+	@Override
+	public String toString() {
+		return "Ingredients [ingredientId=" + ingredientId + ", ingredientName=" + ingredientName + ", ingredientType="
+				+ ingredientType + ", category=" + category + "]";
 	}
 	
 	

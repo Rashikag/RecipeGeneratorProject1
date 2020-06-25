@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.springmvc.model.User;
 
 @Repository
-public class LoginControllerDao {
+public class LoginControllerDao{
 	
 	@Autowired
 	DataSource dataSource;

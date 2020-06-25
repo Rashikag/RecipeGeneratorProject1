@@ -21,6 +21,9 @@
     <bean id="LoginControllerDao" class="com.springmvc.dao.LoginControllerDao">
     <constructor-arg ref="dataSource"/>
     </bean>
+    <bean id="SearchControllerDao" class="com.springmvc.dao.SearchControllerDao">
+    <constructor-arg ref="dataSource"/>
+    </bean>
 	 <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">

@@ -1,5 +1,7 @@
 package com.springmvc.model;
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,14 +23,15 @@ public class Recipe {
 	private String recipeType;
 	@Column(name = "recipe_image")
 	private String recipeImage;
-
+   
+	
 	public Recipe() {
 
 		super();
 	}
 
 	public Recipe(int recipeId, String recipeTitle, String cuisine, String cuisineType, String details,
-			String recipeType, String recipeImage) {
+			String recipeType, String recipeImage,String[] ingredients) {
 		super();
 		this.recipeId = recipeId;
 		this.recipeTitle = recipeTitle;
@@ -94,5 +97,14 @@ public class Recipe {
 	public void setRecipeImage(String recipeImage) {
 		this.recipeImage = recipeImage;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "Recipe [recipeId=" + recipeId + ", recipeTitle=" + recipeTitle + ", cuisine=" + cuisine
+				+ ", cuisineType=" + cuisineType + ", details=" + details + ", recipeType=" + recipeType
+				+ ", recipeImage=" + recipeImage + ", ingredients=";
+	}
+
 
 }
