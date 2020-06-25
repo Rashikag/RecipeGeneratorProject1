@@ -49,6 +49,10 @@ font-size:30px;
 color:#008080;
 font-family:  Acme ;
 }
+.enter
+{color:black;
+font-weight:bold;
+}
 </style>
 </head>
 <body>
@@ -61,9 +65,9 @@ font-family:  Acme ;
        <ul class="nav navbar-nav navbar-right">
         <div>
      	 <form class="cred" action="/login" method="POST">
-          Username <input name="name" type="text" />
-          Password <input  name="password" type="password" /> 
-          <button type="button" class="btn btn-success" type="submit" >Login</button>
+          Username <input class="enter" name="name" type="text" />
+          Password <input class="enter" name="password" type="password" /> 
+          <input type="submit" class="btn btn-success" value="Login"/>
         </form>
          </div> 
        </ul>
@@ -72,30 +76,30 @@ font-family:  Acme ;
     
 </nav>
 
- <form action="">
+ <form action="/signup" method="POST">
  <div class="mid">
  <p><h2>Sign up!</h2></p>
  <div class="form-group row">
     <label for="username" class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="username" placeholder="username">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="email" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-6">
-      <input type="email" class="form-control" id="email" placeholder="email@example.com">
+      <input type="text" class="form-control" id="username" placeholder="username" name="username">
     </div>
   </div>
   <div class="form-group row">
     <label for="password" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-6">
-      <input type="password" class="form-control" id=password" placeholder="Password">
+      <input type="password" class="form-control" id=password" placeholder="Password" name="password">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="email" placeholder="email@example.com" name="gmail">
     </div>
   </div>
   <div class="form-group row new">
     <div class="col-sm-4">
-      <button type="button" class="form-control btn btn-success">Sign Up</button>
+      <input type="submit" class="btn btn-success" value="Sign Up"/>
     </div>
   </div>
   </div>

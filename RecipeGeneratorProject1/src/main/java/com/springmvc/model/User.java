@@ -1,46 +1,67 @@
 package com.springmvc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User_detail")
 public class User {
-	private int user_id;
-	private String user_name;
-	private String user_password;
-	private String user_gmail;
+	
+	@Id
+	@GeneratedValue
+	@Column(name="user_id")
+	private int userId;
+	@Column(name="user_name")
+	private String userName;
+	@Column(name="user_password")
+	private String userPassword;
+	@Column(name="user_gmail")
+	private String userGmail;
 	
 	
 	public User() {
-		super();
 	}
 	
-	public User(int user_id, String user_name, String user_password, String user_gmail) {
+	public User(int userId, String userName, String userPassword, String userGmail) {
 		super();
-		this.user_id = user_id;
-		this.user_name = user_name;
-		this.user_password = user_password;
-		this.user_gmail = user_gmail;
+		this.userId = userId;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userGmail = userGmail;
 	}
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getUser_password() {
-		return user_password;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public String getUser_gmail() {
-		return user_gmail;
+	public String getUserGmail() {
+		return userGmail;
 	}
-	public void setUser_gmail(String user_gmail) {
-		this.user_gmail = user_gmail;
+	public void setUserGmail(String userGmail) {
+		this.userGmail = userGmail;
 	}
 
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userPassword=" + userPassword + ", userGmail="
+				+ userGmail + "]";
+	}
+
+	
 }

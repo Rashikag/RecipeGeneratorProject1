@@ -9,7 +9,7 @@
 	rel="stylesheet">
 <style>
 body
-{ background:url('https://images.unsplash.com/photo-1559311648-874c28a0b7c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80') fixed no-repeat;
+{ background:url('https://images.unsplash.com/photo-1579729056339-d9f3b4b979f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80') fixed no-repeat;
 	background-size: cover;
 	background-position: center;
 }
@@ -42,20 +42,23 @@ margin-top:90px;
 font-family:cursive;
 font-size:40px;
 margin-bottom:30px;
+margin-left:400px;
 }
 .image{
-margin-top:-350px;
-margin-left:140px;
+margin-top:-250px;
+margin-left:110px;
 }
 .details{
 border:0;
-color:#ffffff;
-background-color:#000000;
+
 
 }
+
 .mail{
-margin-left:-370px;
-margin-top:250px;
+margin-left:-340px;
+margin-top:200px;
+padding:10px 70px;
+
 }
 </style>
 </head>
@@ -82,7 +85,7 @@ margin-top:250px;
   <table>
   <tr>
   <th>
-  <textarea id="details" name="details" class="details" rows="25" cols="70">
+  <textarea id="details" name="details" class="jumbotron details" rows="25" cols="60">
   •	1 tablespoon oil
 •	1 onion, chopped
 •	1 stalk celery, chopped
@@ -106,11 +109,11 @@ Instructions
   </th>
   <th>
   <div>
-  <img class="image" src="https://images.unsplash.com/photo-1526991204058-9d45349da374?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="400" height="250">
+  <img class="jumbotron image" src="https://images.unsplash.com/photo-1526991204058-9d45349da374?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="450" height="350">
     </div>
     </th>
     <th>
-    <button class="btn btn-primary mail">Take to mail</button>
+    <button class="btn btn-success mail">Take to mail</button>
     </tr>
   </table>
   <script src="webjars/jquery/1.9.1/jquery.min.js"></script>

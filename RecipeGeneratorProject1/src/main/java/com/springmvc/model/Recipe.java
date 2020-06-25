@@ -1,73 +1,98 @@
 package com.springmvc.model;
 
-public class Recipe {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-	private int recipe_id;
-	private String recipe_title;
+public class Recipe {
+	@Id
+	@GeneratedValue
+	@Column(name = "recipe_id")
+	private int recipeId;
+	@Column(name = "recipe_title")
+	private String recipeTitle;
+	@Column(name = "cuisine")
 	private String cuisine;
-	private String cuisine_type;
+	@Column(name = "cuisine_type")
+	private String cuisineType;
+	@Column(name = "details")
 	private String details;
-	private String recipe_type;
-	private String recipe_image;
-	
+	@Column(name = "recipe_type")
+	private String recipeType;
+	@Column(name = "recipe_image")
+	private String recipeImage;
+
 	public Recipe() {
+
 		super();
 	}
-	
-	public Recipe(int recipe_id, String recipe_title, String cuisine, String cuisine_type, String details,
-			String recipe_type, String recipe_image) {
+
+	public Recipe(int recipeId, String recipeTitle, String cuisine, String cuisineType, String details,
+			String recipeType, String recipeImage) {
 		super();
-		this.recipe_id = recipe_id;
-		this.recipe_title = recipe_title;
+		this.recipeId = recipeId;
+		this.recipeTitle = recipeTitle;
 		this.cuisine = cuisine;
-		this.cuisine_type = cuisine_type;
+		this.cuisineType = cuisineType;
 		this.details = details;
-		this.recipe_type = recipe_type;
-		this.recipe_image = recipe_image;
+		this.recipeType = recipeType;
+		this.recipeImage = recipeImage;
 	}
-	
-	public int getRecipe_id() {
-		return recipe_id;
+
+	public int getRecipeId() {
+		return recipeId;
 	}
-	public void setRecipe_id(int recipe_id) {
-		this.recipe_id = recipe_id;
+
+	public void setRecipeId(int recipeId) {
+		this.recipeId = recipeId;
 	}
-	public String getRecipe_title() {
-		return recipe_title;
+
+	public String getRecipeTitle() {
+		return recipeTitle;
 	}
-	public void setRecipe_title(String recipe_title) {
-		this.recipe_title = recipe_title;
+
+	public void setRecipeTitle(String recipeTitle) {
+		this.recipeTitle = recipeTitle;
 	}
+
 	public String getCuisine() {
 		return cuisine;
 	}
+
 	public void setCuisine(String cuisine) {
 		this.cuisine = cuisine;
 	}
-	public String getCuisine_type() {
-		return cuisine_type;
+
+	public String getCuisineType() {
+		return cuisineType;
 	}
-	public void setCuisine_type(String cuisine_type) {
-		this.cuisine_type = cuisine_type;
+
+	public void setCuisineType(String cuisineType) {
+		this.cuisineType = cuisineType;
 	}
+
 	public String getDetails() {
 		return details;
 	}
+
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public String getRecipe_type() {
-		return recipe_type;
+
+	public String getRecipeType() {
+		return recipeType;
 	}
-	public void setRecipe_type(String recipe_type) {
-		this.recipe_type = recipe_type;
+
+	public void setRecipeType(String recipeType) {
+		this.recipeType = recipeType;
 	}
-	public String getRecipe_image() {
-		return recipe_image;
+
+	public String getRecipeImage() {
+		return recipeImage;
 	}
-	public void setRecipe_image(String recipe_image) {
-		this.recipe_image = recipe_image;
+
+	public void setRecipeImage(String recipeImage) {
+		this.recipeImage = recipeImage;
 	}
-	
-	
+
 }

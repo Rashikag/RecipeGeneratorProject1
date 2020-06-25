@@ -28,6 +28,7 @@ background-color:#202020;
 color:#eeefff;
 font-family: Coiny    ;
 border:0;
+font-size: 1.1em; 
 }
 .right
 {
@@ -79,7 +80,7 @@ z-index:-1;
        <ul class="nav navbar-nav navbar-right">
         <div>
      	 <form class="cred" action="/login" method="POST">
-          Hello <input name="name" type="text" class="username" readonly /> 
+         Hello  <input name="name" type="text" class="username" value=${name} readonly>
           <button type="button" class="btn btn-warning" type="submit" >Logout</button>
          </form>
          </div> 

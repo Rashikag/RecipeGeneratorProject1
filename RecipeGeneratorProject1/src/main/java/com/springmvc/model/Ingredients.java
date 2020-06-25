@@ -1,40 +1,50 @@
 package com.springmvc.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Ingredients {
 //ngredient_name,Ingredient_type,Category
-	private int ingredient_id;
-	private String ingredient_name;
-	private String ingredient_type;
+	@Id
+	@GeneratedValue
+	@Column(name="ingredient_id")
+	private int ingredientId;
+	@Column(name="ingredient_name")
+	private String ingredientName;
+	@Column(name="ingredient_type")
+	private String ingredientType;
+    @Column(name="category")
 	private int category;
 	
 	public Ingredients()
 	{
 		super();
 	}
-	public Ingredients(int ingredient_id, String ingredient_name, String ingredient_type, int category) {
+	public Ingredients(int ingredientId, String ingredientName, String ingredientType, int category) {
 		super();
-		this.ingredient_id = ingredient_id;
-		this.ingredient_name = ingredient_name;
-		this.ingredient_type = ingredient_type;
+		this.ingredientId = ingredientId;
+		this.ingredientName = ingredientName;
+		this.ingredientType = ingredientType;
 		this.category = category;
 	}
-	public int getIngredient_id() {
-		return ingredient_id;
+	public int getIngredientId() {
+		return ingredientId;
 	}
-	public void setIngredient_id(int ingredient_id) {
-		this.ingredient_id = ingredient_id;
+	public void setIngredientId(int ingredientId) {
+		this.ingredientId = ingredientId;
 	}
-	public String getIngredient_name() {
-		return ingredient_name;
+	public String getIngredientName() {
+		return ingredientName;
 	}
-	public void setIngredient_name(String ingredient_name) {
-		this.ingredient_name = ingredient_name;
+	public void setIngredientName(String ingredientName) {
+		this.ingredientName = ingredientName;
 	}
-	public String getIngredient_type() {
-		return ingredient_type;
+	public String getIngredientType() {
+		return ingredientType;
 	}
-	public void setIngredient_type(String ingredient_type) {
-		this.ingredient_type = ingredient_type;
+	public void setIngredientType(String ingredientType) {
+		this.ingredientType = ingredientType;
 	}
 	public int getCategory() {
 		return category;
