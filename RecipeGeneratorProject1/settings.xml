@@ -1,0 +1,75 @@
+<settings>
+    <profiles>
+
+        <profile>
+            <id>nexus</id>
+            <!--Enable snapshots for the built in central repo to direct -->
+            <!--all requests to nexus via the mirror -->
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2/</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>prime-repo</id>
+                    <url>https://repository.primefaces.org</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>apache</id>
+                    <url>https://repo.maven.apache.org/maven2</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>myntra-plugin</id>
+                    <url>https://garepos.myntra.com:8080/nexus/content/groups/public/</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <!--make the profile active all the time -->
+        <activeProfile>nexus</activeProfile>
+        <activeProfile>repos</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>releases</id>
+            <username>deployuser</username>
+            <password>deployuser123r</password>
+        </server>
+        <server>
+            <id>snapshots</id>
+            <username>deployuser</username>
+            <password>deployuser123</password>
+        </server>
+        <server>
+            <id>upload-releases-php-maven-org</id>
+            <username>deployuser</username>
+            <password>deployuser123</password>
+        </server>
+        <server>
+            <id>upload-snapshots-php-maven-org</id>
+            <username>deployuser</username>
+            <password>deployuser123</password>
+        </server>
+        <server>
+            <id>myntra-commons</id>
+            <username>deployuser</username>
+            <password>deployuser123</password>
+        </server>
+    </servers>
+</settings>
