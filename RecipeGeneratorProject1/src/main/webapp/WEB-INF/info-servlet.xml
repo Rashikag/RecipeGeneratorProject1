@@ -18,12 +18,12 @@
         <property name="password" value="Rashika@123"/>
     </bean>
     
-    <bean id="LoginControllerDao" class="com.springmvc.dao.LoginControllerDao">
+   <bean id="LoginControllerDao" class="com.springmvc.dao.LoginControllerDao">
     <constructor-arg ref="dataSource"/>
     </bean>
     <bean id="SearchControllerDao" class="com.springmvc.dao.SearchControllerDao">
     <constructor-arg ref="dataSource"/>
-    </bean>
+    </bean> 
 	 <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">

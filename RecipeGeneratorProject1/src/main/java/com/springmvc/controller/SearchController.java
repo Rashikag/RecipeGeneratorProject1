@@ -30,4 +30,16 @@ public class SearchController {
 			return "recipe";
 			
 	}
+	
+	/*
+	 @RequestMapping(value="/filter",method=RequestMethod.POST)
+	public String recipeDetails(@RequestParam(value="ingredientType") List<String> ingredientType,
+	  @RequestParam(value="veg-non",required=false) String veg-non,
+	  @RequestParam(value="cuisine",required=false) String cuisine,
+	  @RequestParam(value="category",required=false) String category,
+	  @ModelAttribute("AllrecipeDetail") Recipe allDetails,ModelMap model){
+		allDetails=searchControllerDao.showRecipeDetails(ingredientType,veg-non,cuisine,category); 
+			model.addAttribute("recipeDetails", detail);
+			return "filter";
+	 */
 }

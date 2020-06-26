@@ -88,64 +88,69 @@ z-index:-1;
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
   </nav>
+   <form action="/filter" method=POST methodAttribute="allRecipeDetails">
   <div class="container">
   <p class="start">Welcome to the Pantry!!</p>
   <table class="table">
   <tr>
   <th>Ingredients</th>
-  <th><select class="dropdown">
+  <th><select class="dropdown" name="ingredientType">
  <option selected> Diary</option>
   <option value="Egg">Egg</option>
   <option value="Milk">Milk</option>
   <option value="Cheese">Cheese</option>
   </select>
   </th>
-  <th><select class="dropdown">
+  <th><select class="dropdown" name="ingredientType">
   <option selected>Vegetables</option>
   <option value="Potato">Potato</option>
   <option value="Tomato">Tomato</option>
   </select></th>
-  <th><select class="dropdown">
-  <option selected >Fruits</option>
+  <th>
+ <select class="dropdown" name="ingredientType">
+ <option selected >Fruits</option>
   <option value="Mango">Mango</option>
   <option value="Apple">Apple</option>
+ </select>
   </th>
-  <th><select class="dropdown">
+  <th><select class="dropdown" name="ingredientType">
   <option selected >Baked/Grains</option>
   <option value="Bread">Bread</option>
   <option value="Rice">Rice</option>
   <option value="Chickpeas">Chickpeas</option>
   </select>
   </th>
-  <th><select class="dropdown">
+  <th><select class="dropdown" name="ingredientType">
   <option selected >Proteins</option>
   <option value="Chicken">Chicken</option>
   <option value="Fish">Fish</option>
   </select></th>
-  <th><select class="dropdown">
+  <th><select class="dropdown" name="ingredientType">
   <option selected >Packaged</option>
   <option value="Noodles">Noodles</option>
   <option value="Pasta">Pasta</option>
   </select>
   </th>
-  </select>
-  </th>
   </tr>
+  </table>
+  <table class="table">
   <tr>
   <th>Veg/Non-Veg</th>
   <th>
   <div>
-  <label><input type="radio" id="veg" name="type" value="veg">  <button class="btn btn-success" disabled>VEG</button></label>
+  <label><input type="radio" id="veg" name="veg-non" value="veg">  <button class="btn btn-success" disabled>VEG</button></label>
   </div></th>
   <th>
   <div>
-  <label><input type="radio" id="non-veg" name="type" value="non-veg">  <button class="btn btn-danger" disabled>NON-VEG</button></label>
+  <label><input type="radio" id="non-veg" name="veg-non" value="non-veg">  <button class="btn btn-danger" disabled>NON-VEG</button></label>
   </div></th>
   <th></th>
   <th></th>
   <th></th>
   <th></th>
   </tr>
+  </table>
+  <table class="table">
   <tr>
   <th>Cuisine</th>
   <th>
@@ -170,36 +175,37 @@ z-index:-1;
   </div></th>
   <th></th>
   </tr>
-  
+  </table>
+  <table class="table">
   <tr>
   <th>Category</th>
  <th>
   <div>
-  <label><input type="radio" id="starter" name="cat" value="starter">  <button class="btn btn-warning" disabled>Starter</button></label>
+  <label><input type="radio" id="starter" name="category" value="starter">  <button class="btn btn-warning" disabled>Starter</button></label>
   </div></th>
   <th>
   <div>
-  <label><input type="radio" id="Side-Dish" name="cat" value="Side-Dish">  <button class="btn btn-warning" disabled>Side-Dish</button></label>
+  <label><input type="radio" id="Side-Dish" name="category" value="Side-Dish">  <button class="btn btn-warning" disabled>Side-Dish</button></label>
   </div></th>
   <th>
   <div>
-  <label><input type="radio" id="Main-course" name="cat" value="Main-course">  <button class="btn btn-warning" disabled>Main-course</button></label>
+  <label><input type="radio" id="Main-course" name="category" value="Main-course">  <button class="btn btn-warning" disabled>Main-course</button></label>
   </div></th>
   <th>
   <div>
-  <label><input type="radio" id="soup" name="cat" value="soup">  <button class="btn btn-warning" disabled>Soup</button></label>
+  <label><input type="radio" id="soup" name="category" value="soup">  <button class="btn btn-warning" disabled>Soup</button></label>
   </div></th>
   <th>
   <div>
-  <label><input type="radio" id="Dessert" name="cat" value="Dessert">  <button class="btn btn-warning" disabled>Dessert</button></label>
+  <label><input type="radio" id="Dessert" name="category" value="Dessert">  <button class="btn btn-warning" disabled>Dessert</button></label>
   </div></th>
   <th>
   </th>
   </tr>
- 
-  </table>
+ </table>
   <button class="btn btn-primary col-sm-2 search">SEARCH</button>
   </div>
+  </form>
    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
