@@ -24,8 +24,7 @@ public class Recipe {
 	private String recipeType;
 	@Column(name = "recipe_image")
 	private String recipeImage;
-    private ArrayList<Ingredients> ingredientArray;
-	
+    
 	public Recipe() {
 
 		super();
@@ -34,7 +33,7 @@ public class Recipe {
 	
 
 	public Recipe(int recipeId, String recipeTitle, String cuisine, String cuisineType, String details,
-			String recipeType, String recipeImage, ArrayList<Ingredients> ingredientArray) {
+			String recipeType, String recipeImage) {
 		super();
 		this.recipeId = recipeId;
 		this.recipeTitle = recipeTitle;
@@ -43,7 +42,7 @@ public class Recipe {
 		this.details = details;
 		this.recipeType = recipeType;
 		this.recipeImage = recipeImage;
-		this.ingredientArray = ingredientArray;
+		
 	}
 
 
@@ -105,13 +104,7 @@ public class Recipe {
 	}
 	
 
-	public ArrayList<Ingredients> getIngredientArray() {
-		return ingredientArray;
-	}
-
-	public void setIngredientArray(ArrayList<Ingredients> ingredientArray) {
-		this.ingredientArray = ingredientArray;
-	}
+	
 
 
 
@@ -119,7 +112,7 @@ public class Recipe {
 	public String toString() {
 		return "Recipe [recipeId=" + recipeId + ", recipeTitle=" + recipeTitle + ", cuisine=" + cuisine
 				+ ", cuisineType=" + cuisineType + ", details=" + details + ", recipeType=" + recipeType
-				+ ", recipeImage=" + recipeImage + ", ingredientArray=" + ingredientArray + "]";
+				+ ", recipeImage=" + recipeImage + "]";
 	}
 
 	

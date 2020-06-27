@@ -3,6 +3,7 @@ package com.springmvc.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -56,11 +57,11 @@ public class SearchControllerDao{
                 sql, String.class);
 
     }*/
-    /* public List<Recipe> showRecipeDetails(List<String> ingredientName) {
+   public List<Recipe> showRecipeDetails(List<String> ingredientName) {
           String inSql = String.join(",", Collections.nCopies(ingredientName.size(), "?"));
-        return jdbcTemplate.query("select * from ingredients i join recipe_ingredient_mapping m 
-        on m.ingredient_id = i.ingredient_id join recipe r on r.recipe_id = m.recipe_id 
-         WHERE ingredient_name IN (%s)", inSql),ingredientName.toArray()",new RowMapper<Recipe>()
+        return jdbcTemplate.query(String.format("select * from ingredients i join recipe_ingredient_mapping m "+
+       " on m.ingredient_id = i.ingredient_id join recipe r on r.recipe_id = m.recipe_id " +
+         "WHERE i.ingredient_name IN (%s)"  ,inSql),ingredientName.toArray(),new RowMapper<Recipe>()
 				{
 
 					public Recipe mapRow(ResultSet rs, int row) throws SQLException {
@@ -76,7 +77,28 @@ public class SearchControllerDao{
 					}
 				
 				});
-    } */
+    } 
+	/*public List<Recipe> showRecipeDetails(String category) {
+       // String inSql = String.join(",", Collections.nCopies(ingredientName.size(), "?"));
+      return jdbcTemplate.query("select * from ingredients i join recipe_ingredient_mapping m "+
+     " on m.ingredient_id = i.ingredient_id join recipe r on r.recipe_id = m.recipe_id " +
+       "WHERE category='"+ category + "'",new RowMapper<Recipe>()
+				{
+
+					public Recipe mapRow(ResultSet rs, int row) throws SQLException {
+						Recipe recipe=new Recipe();
+						recipe.setRecipeId(rs.getInt(1));
+						recipe.setRecipeTitle(rs.getString(2));
+						recipe.setCuisine(rs.getString(3));
+						recipe.setCuisineType(rs.getString(4));
+						recipe.setDetails(rs.getString(5));
+						recipe.setRecipeType(rs.getString(6));
+						recipe.setRecipeImage(rs.getString(7));
+						return recipe;
+					}
+				
+				});
+  }*/
 	public Recipe validateRecipeName(String recipeTitle) {
 		// TODO Auto-generated method stub
 		List<Recipe> recipeList=new ArrayList<>();
@@ -84,7 +106,7 @@ public class SearchControllerDao{
 		recipeList=getAllRecipes();
 		for(Recipe r:recipeList)
 		{
-			if(r.getRecipeTitle().equals(recipeTitle))
+			if(r.getRecipeTitle().equalsIgnoreCase(recipeTitle))
 		return r;
 		}
 		return null;

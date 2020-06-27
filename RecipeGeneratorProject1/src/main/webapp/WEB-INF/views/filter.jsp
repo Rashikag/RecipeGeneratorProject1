@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
 <style>
@@ -48,9 +49,10 @@ font-size: 1.1em;
 }
 .table{
 margin-top:40px;
+margin-bottom:-33px;'
 }
 tr{
-height:60px;
+height:40px;
 }
 .dropdown{
 margin-top:7px;
@@ -64,6 +66,7 @@ color:#3b5323;
 }
 .search{
 margin-left:480px;
+margin-top:50px;
 }
 img{
 z-index:-1;
@@ -88,44 +91,44 @@ z-index:-1;
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
   </nav>
-   <form action="/filter" method=POST methodAttribute="allRecipeDetails">
+   <form action="/filter" method=POST modelAttribute="allRecipeDetails">
   <div class="container">
   <p class="start">Welcome to the Pantry!!</p>
   <table class="table">
   <tr>
   <th>Ingredients</th>
-  <th><select class="dropdown" name="ingredientType">
- <option selected> Diary</option>
+  <th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}" multiple>
+ <!--<option selected> Diary</option>-->
   <option value="Egg">Egg</option>
   <option value="Milk">Milk</option>
   <option value="Cheese">Cheese</option>
   </select>
-  </th>
-  <th><select class="dropdown" name="ingredientType">
-  <option selected>Vegetables</option>
+  </th> 
+<th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}">
+ <option selected>Vegetables</option>
   <option value="Potato">Potato</option>
   <option value="Tomato">Tomato</option>
   </select></th>
   <th>
- <select class="dropdown" name="ingredientType">
- <option selected >Fruits</option>
+ <select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}">
+  <option selected >Fruits</option>
   <option value="Mango">Mango</option>
   <option value="Apple">Apple</option>
  </select>
   </th>
-  <th><select class="dropdown" name="ingredientType">
-  <option selected >Baked/Grains</option>
+  <th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}">
+   <option selected >Baked/Grains</option>
   <option value="Bread">Bread</option>
   <option value="Rice">Rice</option>
   <option value="Chickpeas">Chickpeas</option>
   </select>
   </th>
-  <th><select class="dropdown" name="ingredientType">
-  <option selected >Proteins</option>
+  <th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}">
+ <option selected >Proteins</option> 
   <option value="Chicken">Chicken</option>
   <option value="Fish">Fish</option>
   </select></th>
-  <th><select class="dropdown" name="ingredientType">
+  <th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}">
   <option selected >Packaged</option>
   <option value="Noodles">Noodles</option>
   <option value="Pasta">Pasta</option>
@@ -193,7 +196,7 @@ z-index:-1;
   </div></th>
   <th>
   <div>
-  <label><input type="radio" id="soup" name="category" value="soup">  <button class="btn btn-warning" disabled>Soup</button></label>
+  <label><input type="radio" id="soup" name="category" value="Soup">  <button class="btn btn-warning" disabled>Soup</button></label>
   </div></th>
   <th>
   <div>
@@ -204,6 +207,13 @@ z-index:-1;
   </tr>
  </table>
   <button class="btn btn-primary col-sm-2 search">SEARCH</button>
+  <textarea rows="10" cols="10">
+  <c:forEach items="${allRecipeDetails}" var="recipe">
+  <tr>
+  <td>${allRecipeDetails.details}</td>
+  </tr>
+  </c:forEach>
+</textarea>
   </div>
   </form>
    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -216,7 +226,9 @@ z-index:-1;
     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+  <!-- Wrapper for slides
+    
+   -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <img src="https://images.unsplash.com/photo-1552590635-e94502090862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="700" height="50" >
