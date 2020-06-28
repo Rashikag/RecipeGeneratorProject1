@@ -15,7 +15,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.springmvc.model.Recipe;
-import com.springmvc.model.RecipeListObject;
 import com.springmvc.model.User;
 
 @Repository
@@ -103,6 +102,32 @@ public class SearchControllerDao{
 		return null;
 		
 	} 
+	
+	public List<Recipe> fetchRecipes(Recipe recipe) {
+		   StringBuilder query=new StringBuilder("select * from recipe where ");
+		   if(recipe.getRecipeType()!=null) {
+			   query.append("recipe_type= '" + recipe.getRecipeType()+"' ");
+		   }//todo do same for other fields	   
+		   List<Recipe> recipeList = new ArrayList<>();
+		   recipeList = jdbcTemplate.query(query.toString(),new RowMapper<Recipe>()
+			{
+
+				public Recipe mapRow(ResultSet rs, int row) throws SQLException {
+					Recipe recipe=new Recipe();
+					recipe.setRecipeId(rs.getInt(1));
+					recipe.setRecipeTitle(rs.getString(2));
+					recipe.setCuisine(rs.getString(3));
+					recipe.setCuisineType(rs.getString(4));
+					recipe.setDetails(rs.getString(5));
+					recipe.setRecipeType(rs.getString(6));
+					recipe.setRecipeImage(rs.getString(7));
+					return recipe;
+				}
+
+			});
+            return recipeList;
+	    }
+
 
 	/*public String validateRecipeName(String recipeTitle) {
 		// TODO Auto-generated method stub

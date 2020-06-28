@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="recipe")
 public class Recipe {
 	@Id
 	@GeneratedValue

@@ -5,22 +5,22 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.springmvc.dao.SearchControllerDao;
 import com.springmvc.model.Ingredients;
 import com.springmvc.model.Recipe;
-import com.springmvc.model.RecipeListObject;
+
 
 @Controller
 @SessionAttributes("name")
@@ -44,19 +44,13 @@ public class SearchController {
 	}
     
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public String showPage() {
+	public String showPage(Model model) {
+		//todo-addingredientlist
+			Recipe recipe=new Recipe();
+			model.addAttribute("recipe", recipe);
 		return "filter";
 	}
-	@RequestMapping(value = "/testform", method = RequestMethod.POST)
-	public String fetchRecipe(Ingredients ingredients, ModelMap model) {
-		model.addAttribute("ingredient", ingredients);
-		List<String> ingredientName = new ArrayList<>();
-		ingredientName.add(ingredients.getIngredientName());
-		List<Recipe> allRecipeDetail = searchControllerDao.showRecipeDetails(ingredientName);
-		model.addAttribute("allRecipeDetails", allRecipeDetail);
-		return "testform";
 	
-	}
 
 	@RequestMapping(value = "/testform", method = RequestMethod.GET)
 	public String getForm(Model model) {
@@ -76,31 +70,25 @@ public class SearchController {
 		model.addAttribute("packList", packList);
 		return "testform";
 	}
-	/*@RequestMapping(value = "/filter", method = RequestMethod.POST)
-	public String recipeDetails(@RequestParam(value = "ingredientName") String ingredientName,
-			@ModelAttribute("allRecipeDetail") RecipeListObject allRecipeDetails, ModelMap model) {
-		ArrayList<String> ing=new ArrayList<String>();
-		ing.add(ingredientName);
-		RecipeListObject allRecipeDetail = searchControllerDao.showRecipeDetails(ing);
-	//	int cSize = ingredientName.size();
-	//	model.put("cSize", cSize);
+	
+	@RequestMapping(value = "/testform", method = RequestMethod.POST)
+	public String fetchRecipe(Ingredients ingredients, ModelMap model) {
+		model.addAttribute("ingredient", ingredients);
+		List<String> ingredientName = new ArrayList<>();
+		ingredientName.add(ingredients.getIngredientName());
+		List<Recipe> allRecipeDetail = searchControllerDao.showRecipeDetails(ingredientName);
 		model.addAttribute("allRecipeDetails", allRecipeDetail);
-		return "filter";
-	}*/
-}
-	/*@RequestMapping(value = "/filter", method = RequestMethod.POST)
-	public String recipeDetails(@RequestParam String ingredientName,
-			@ModelAttribute("allrecipeDetail") RecipeListObject allRecipeDetails, ModelMap model) {
-		
-		RecipeListObject allRecipeDetail= searchControllerDao.showRecipeDetails(ingredientName);
-		model.addAttribute("allRecipeDetails", allRecipeDetail);
-		return "filter";
+		return "testform";
+	
 	}
-}*/
-/*
- * @RequestParam(value="veg-non",required=false) String veg_non,
- * 
- * @RequestParam(value="cuisine",required=false) String cuisine,
- * 
- * @RequestParam(value="category",required=false) String category,
- */
+	@RequestMapping(value = "/filter", method = RequestMethod.POST)
+	public String recipeDetails(Recipe recipe, ModelMap model) {
+		model.addAttribute("recipe",recipe);
+		List<Recipe> allRecipeDetail = searchControllerDao.fetchRecipes(recipe);
+		model.addAttribute("allRecipeDetails", allRecipeDetail.get(0));	
+		return "recipef";
+	}
+	
+	
+}
+	

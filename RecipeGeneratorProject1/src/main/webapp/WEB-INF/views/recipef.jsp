@@ -81,13 +81,13 @@ padding:10px 70px;
   </div><!-- /.container-fluid -->
   </nav>
   <div class="container">
-  <form action="/recipef" method="POST" modelAttribute="recipeDetails">
+  <form action="/recipef" method="POST" modelAttribute="allRecipeDetails">
  <label for="recipe" name="recipe" class="recipe">${allRecipeDetails.recipeTitle}</label>
   <table>
   <tr>
   <th>
   <textarea id="details" name="details" class="jumbotron details" rows="25" cols="60">
-  ${recipeDetails.details}
+  ${allRecipeDetails.details}
  </textarea>
   </th>
   <th>
