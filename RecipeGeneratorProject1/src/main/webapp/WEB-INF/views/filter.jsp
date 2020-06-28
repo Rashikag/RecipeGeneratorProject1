@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
 <style>
@@ -97,13 +98,14 @@ z-index:-1;
   <table class="table">
   <tr>
   <th>Ingredients</th>
-  <th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}" multiple>
- <!--<option selected> Diary</option>-->
-  <option value="Egg">Egg</option>
-  <option value="Milk">Milk</option>
-  <option value="Cheese">Cheese</option>
+  <th><select class="dropdown" path="ingredientName" value="${allRecipeDetails.ingredientName}" >
+ <option selected> Diary</option>
+  <option value="Egg" label="Egg"/>
+  <option value="Milk" label="Milk"/>
+  <option value="Cheese" label="Cheese"/>
   </select>
-  </th> 
+  </th>
+  
 <th><select class="dropdown" name="ingredientName" value="${allRecipeDetails.ingredientName}">
  <option selected>Vegetables</option>
   <option value="Potato">Potato</option>
@@ -133,7 +135,7 @@ z-index:-1;
   <option value="Noodles">Noodles</option>
   <option value="Pasta">Pasta</option>
   </select>
-  </th>
+  </th> 
   </tr>
   </table>
   <table class="table">
@@ -208,9 +210,9 @@ z-index:-1;
  </table>
   <button class="btn btn-primary col-sm-2 search">SEARCH</button>
   <textarea rows="10" cols="10">
-  <c:forEach items="${allRecipeDetails}" var="recipe">
+  <c:forEach items="${allRecipeDetails.recipeList}" var="recipe">
   <tr>
-  <td>${allRecipeDetails.details}</td>
+  <td>${recipe.details}</td>
   </tr>
   </c:forEach>
 </textarea>
@@ -225,7 +227,7 @@ z-index:-1;
     <li data-target="#carousel-example-generic" data-slide-to="3"></li>
     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
   </ol>
-
+<!--  -->
   <!-- Wrapper for slides
     
    -->

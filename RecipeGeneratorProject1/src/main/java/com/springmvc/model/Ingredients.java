@@ -22,7 +22,6 @@ public class Ingredients {
 	
 	public Ingredients()
 	{
-		super();
 	}
 	public Ingredients(int ingredientId, String ingredientName, String ingredientType, int category) {
 		super();
