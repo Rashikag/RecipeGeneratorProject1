@@ -37,7 +37,7 @@ public class LoginController  {
 	public String handleLoginRequest(@RequestParam String name,@RequestParam String password,ModelMap model){
 		if(loginControllerDao.validateLogin(name, password)) {
 			model.put("name",name);
-			return "filter";
+			return "redirect:/filter";
 		}
 		return "login";
 	}

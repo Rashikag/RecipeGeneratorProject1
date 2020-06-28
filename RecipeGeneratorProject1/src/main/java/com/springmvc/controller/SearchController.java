@@ -48,6 +48,8 @@ public class SearchController {
 		//todo-addingredientlist
 			Recipe recipe=new Recipe();
 			model.addAttribute("recipe", recipe);
+			ArrayList<String> ingredientList = new ArrayList<>(Arrays.asList("Egg", "Milk", "Cheese"));
+			model.addAttribute("ingredientList", ingredientList);
 		return "filter";
 	}
 	
@@ -85,7 +87,7 @@ public class SearchController {
 	public String recipeDetails(Recipe recipe, ModelMap model) {
 		model.addAttribute("recipe",recipe);
 		List<Recipe> allRecipeDetail = searchControllerDao.fetchRecipes(recipe);
-		model.addAttribute("allRecipeDetails", allRecipeDetail.get(0));	
+		model.addAttribute("allRecipeDetails", allRecipeDetail);//todo	
 		return "recipef";
 	}
 	

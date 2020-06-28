@@ -2,12 +2,14 @@ package com.springmvc.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="recipe")
@@ -29,6 +31,11 @@ public class Recipe {
 	@Column(name = "recipe_image")
 	private String recipeImage;
     
+	@Transient
+	private List<String> ingredientNameList;
+	
+
+
 	public Recipe() {
 
 	}
@@ -105,7 +112,16 @@ public class Recipe {
 	public void setRecipeImage(String recipeImage) {
 		this.recipeImage = recipeImage;
 	}
-	
+	public List<String> getIngredientNameList() {
+		return ingredientNameList;
+	}
+
+
+
+	public void setIngredientNameList(List<String> ingredientNameList) {
+		this.ingredientNameList = ingredientNameList;
+	}
+
 
 	
 

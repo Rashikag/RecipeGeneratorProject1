@@ -18,12 +18,12 @@ public class Ingredients {
 	@Column(name="ingredient_type")
 	private String ingredientType;
     @Column(name="category")
-	private int category;
+	private String category;
 	
 	public Ingredients()
 	{
 	}
-	public Ingredients(int ingredientId, String ingredientName, String ingredientType, int category) {
+	public Ingredients(int ingredientId, String ingredientName, String ingredientType, String category) {
 		super();
 		this.ingredientId = ingredientId;
 		this.ingredientName = ingredientName;
@@ -48,10 +48,10 @@ public class Ingredients {
 	public void setIngredientType(String ingredientType) {
 		this.ingredientType = ingredientType;
 	}
-	public int getCategory() {
+	public String getCategory() {
 		return category;
 	}
-	public void setCategory(int category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 	@Override

@@ -51,9 +51,8 @@
 }
 
 .table {
-	margin-top: 40px;
-	margin-bottom: -33px;
-	'
+	margin-top: 50px;
+	margin-bottom: -40px;
 }
 
 tr {
@@ -74,11 +73,16 @@ tr {
 
 .search {
 	margin-left: 480px;
-	margin-top: 50px;
+	margin-top: 100px;
 }
 
 img {
 	z-index: -1;
+}
+
+.veggie {
+	margin-top: -20px;
+	margin-left: 30px;
 }
 </style>
 </head>
@@ -109,19 +113,32 @@ img {
 			<p class="start">Welcome to the Pantry!!</p>
 			<table class="table">
 				<tr>
+					<th>Ingredients</th>
+					<th><form:select class="dropdown" path="ingredientNameList">
+							<form:option value="" label="..." />
+							<form:options items="${ingredientList}" />
+						</form:select></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
 					<th>Veg/Non-Veg</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="recipeType" value="Veg"/>  <button class="btn btn-info" disabled>Veg</button>
-							</label>
-						    
+							<label><form:radiobutton class="radio" path="recipeType"
+									value="Veg" />
+								<button class="btn btn-success veggie" disabled>Veg</button> </label>
 						</div>
 					</th>
 					<th>
 						<div>
-						<label><form:radiobutton class="radio" path="recipeType" value="Non-Veg"/>  <button class="btn btn-info" disabled>Non-Veg</button>
+							<label><form:radiobutton class="radio" path="recipeType"
+									value="Non-Veg" />
+								<button class="btn btn-danger veggie" disabled>Non-Veg</button>
 							</label>
-				    	</div>
+						</div>
 					</th>
 					<th></th>
 					<th></th>
@@ -129,42 +146,42 @@ img {
 					<th></th>
 				</tr>
 			</table>
-		<!--	<table class="table">
+			<table class="table">
 				<tr>
 					<th>Cuisine</th>
 					<th>
 						<div>
-							<label><input type="radio" id="indian" name="cuisine"
-								value="indian">
-								<button class="btn btn-info" disabled>Indian</button></label>
+							<label><form:radiobutton class="radio" path="cuisine"
+									value="Indian" />
+								<button class="btn btn-info veggie" disabled>Indian</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="american" name="cuisine"
-								value="american">
-								<button class="btn btn-info" disabled>American</button></label>
+							<label><form:radiobutton class="radio" path="cuisine"
+									value="American" />
+								<button class="btn btn-info veggie" disabled>American</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="italian" name="cuisine"
-								value="italian">
-								<button class="btn btn-info" disabled>Italian</button></label>
+							<label><form:radiobutton class="radio" path="cuisine"
+									value="Italian" />
+								<button class="btn btn-info veggie" disabled>Italian</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="chinese" name="cuisine"
-								value="chinese">
-								<button class="btn btn-info" disabled>Chinese</button></label>
+							<label><form:radiobutton class="radio" path="cuisine"
+									value="Chinese" />
+								<button class="btn btn-info veggie" disabled>Chinese</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="french" name="cuisine"
-								value="french">
-								<button class="btn btn-info" disabled>French</button></label>
+							<label><form:radiobutton class="radio" path="cuisine"
+									value="French" />
+								<button class="btn btn-info veggie" disabled>French</button></label>
 						</div>
 					</th>
 					<th></th>
@@ -175,50 +192,45 @@ img {
 					<th>Category</th>
 					<th>
 						<div>
-							<label><input type="radio" id="starter" name="category"
-								value="starter">
-								<button class="btn btn-warning" disabled>Starter</button></label>
+							<label><form:radiobutton class="radio" path="cuisineType"
+									value="Starter" />
+								<button class="btn btn-warning veggie" disabled>Starter</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="Side-Dish" name="category"
-								value="Side-Dish">
-								<button class="btn btn-warning" disabled>Side-Dish</button></label>
+							<label><form:radiobutton class="radio" path="cuisineType"
+									value="Side Dish" />
+								<button class="btn btn-warning veggie" disabled>Side
+									Dish</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="Main-course"
-								name="category" value="Main-course">
-								<button class="btn btn-warning" disabled>Main-course</button></label>
+							<label><form:radiobutton class="radio" path="cuisineType"
+									value="Main Course" />
+								<button class="btn btn-warning veggie" disabled>Main
+									Course</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="soup" name="category"
-								value="Soup">
-								<button class="btn btn-warning" disabled>Soup</button></label>
+							<label><form:radiobutton class="radio" path="cuisineType"
+									value="Soup" />
+								<button class="btn btn-warning veggie" disabled>Soup</button></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><input type="radio" id="Dessert" name="category"
-								value="Dessert">
-								<button class="btn btn-warning" disabled>Dessert</button></label>
+							<label><form:radiobutton class="radio" path="cuisineType"
+									value="Dessert" />
+								<button class="btn btn-warning veggie" disabled>Dessert</button></label>
 						</div>
 					</th>
 					<th></th>
 				</tr>
-			</table>-->
+			</table>
 			<button class="btn btn-primary col-sm-2 search">SEARCH</button>
-			<textarea rows="10" cols="10"> 
-  <c:forEach items="${allRecipeDetails.recipeList}" var="recipes">
-  <tr>
-  <td>${recipes.details}</td>
-  </tr>
-  </c:forEach>
-</textarea>
 		</div>
 	</form:form>
 	<div id="carousel-example-generic" class="carousel slide"
