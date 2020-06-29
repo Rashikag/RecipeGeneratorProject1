@@ -35,11 +35,12 @@ public class LoginController  {
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String handleLoginRequest(@RequestParam String name,@RequestParam String password,ModelMap model){
-		if(loginControllerDao.validateLogin(name, password)) {
-			model.put("name",name);
-			return "redirect:/filter";
+		if(!loginControllerDao.validateLogin(name, password)) {
+			model.put("errorMessage","Invalid Credentials! Please Sign Up!");
+			return "login";
 		}
-		return "login";
+		model.put("name",name);
+		return "redirect:/filter";
 	}
 	
 	@RequestMapping(value="/signup",method=RequestMethod.POST)//produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)

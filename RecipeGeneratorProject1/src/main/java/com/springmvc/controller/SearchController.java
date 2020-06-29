@@ -48,47 +48,26 @@ public class SearchController {
 		//todo-addingredientlist
 			Recipe recipe=new Recipe();
 			model.addAttribute("recipe", recipe);
-			ArrayList<String> ingredientList = new ArrayList<>(Arrays.asList("Egg", "Milk", "Cheese"));
+			List<String> ingredientList=searchControllerDao.getIngredientNameList();
 			model.addAttribute("ingredientList", ingredientList);
 		return "filter";
 	}
 	
 
-	@RequestMapping(value = "/testform", method = RequestMethod.GET)
-	public String getForm(Model model) {
-		Ingredients ingredients = new Ingredients();
-		model.addAttribute("ingredient", ingredients);
-		ArrayList<String> dairyList = new ArrayList<>(Arrays.asList("Egg", "Milk", "Cheese"));
-		ArrayList<String> vegList = new ArrayList<>(Arrays.asList("Potato","Tomato"));
-		ArrayList<String> fruitList = new ArrayList<>(Arrays.asList("Apple","Mango"));
-		ArrayList<String> grainList=new ArrayList<>(Arrays.asList("Chickpeas","Rice","Bread"));
-		ArrayList<String> proteinList=new ArrayList<>(Arrays.asList("Chicken","Fish"));
-		ArrayList<String> packList=new ArrayList<>(Arrays.asList("Noodles","Pasta"));
-		model.addAttribute("dairyList", dairyList);
-		model.addAttribute("vegList", vegList);
-		model.addAttribute("fruitList", fruitList);
-		model.addAttribute("grainList", grainList);
-		model.addAttribute("proteinList", proteinList);
-		model.addAttribute("packList", packList);
-		return "testform";
-	}
 	
-	@RequestMapping(value = "/testform", method = RequestMethod.POST)
-	public String fetchRecipe(Ingredients ingredients, ModelMap model) {
-		model.addAttribute("ingredient", ingredients);
-		List<String> ingredientName = new ArrayList<>();
-		ingredientName.add(ingredients.getIngredientName());
-		List<Recipe> allRecipeDetail = searchControllerDao.showRecipeDetails(ingredientName);
-		model.addAttribute("allRecipeDetails", allRecipeDetail);
-		return "testform";
-	
+	@RequestMapping(value = "/recipef", method = RequestMethod.POST)
+	public String showRecipePage(ModelMap model) {
+		return "recipef";
 	}
 	@RequestMapping(value = "/filter", method = RequestMethod.POST)
 	public String recipeDetails(Recipe recipe, ModelMap model) {
 		model.addAttribute("recipe",recipe);
 		List<Recipe> allRecipeDetail = searchControllerDao.fetchRecipes(recipe);
+		if(allRecipeDetail==null || allRecipeDetail.isEmpty()) {
+			return "filter";
+		}
 		model.addAttribute("allRecipeDetails", allRecipeDetail);//todo	
-		return "recipef";
+		return showRecipePage(model);
 	}
 	
 	

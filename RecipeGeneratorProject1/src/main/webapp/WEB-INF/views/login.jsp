@@ -53,6 +53,12 @@ font-family:  Acme ;
 {color:black;
 font-weight:bold;
 }
+.error{
+color:#dc143c;
+font-size:20px;
+font-family:  Acme ;
+margin-left:60px;
+}
 </style>
 </head>
 <body>
@@ -65,8 +71,8 @@ font-weight:bold;
        <ul class="nav navbar-nav navbar-right">
         <div>
      	 <form class="cred" action="/login" method="POST">
-          Username <input class="enter" name="name" type="text" />
-          Password <input class="enter" name="password" type="password" /> 
+          Username <input class="enter" name="name" type="text" required/>
+          Password <input class="enter" name="password" type="password" required/> 
           <input type="submit" class="btn btn-success" value="Login"/>
         </form>
          </div> 
@@ -102,6 +108,7 @@ font-weight:bold;
       <input type="submit" class="btn btn-success" value="Sign Up"/>
     </div>
   </div>
+  <p class="error">${errorMessage}</p>
   </div>
   </form>
 

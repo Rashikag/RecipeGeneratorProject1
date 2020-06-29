@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
 <style>
@@ -73,17 +74,10 @@ tr {
 
 .search {
 	margin-left: 480px;
-	margin-top: 100px;
+	margin-top: 80px;
 }
 
-img {
-	z-index: -1;
-}
 
-.veggie {
-	margin-top: -20px;
-	margin-left: 30px;
-}
 </style>
 </head>
 <body>
@@ -114,120 +108,97 @@ img {
 			<table class="table">
 				<tr>
 					<th>Ingredients</th>
-					<th><form:select class="dropdown" path="ingredientNameList">
-							<form:option value="" label="..." />
+					<th><form:select class="dropdown col-sm-12" path="ingredientNameList" multiple="true" required="true">
+							<form:option value="" label="Select" />
 							<form:options items="${ingredientList}" />
 						</form:select></th>
-					<th></th>
-					<th></th>
+						<th></th>
 					<th></th>
 					<th></th>
 				</tr>
-				<tr>
+				<tr> 
 					<th>Veg/Non-Veg</th>
 					<th>
-						<div>
-							<label><form:radiobutton class="radio" path="recipeType"
-									value="Veg" />
-								<button class="btn btn-success veggie" disabled>Veg</button> </label>
+						<div >
+							<label><form:radiobutton  path="recipeType"
+									value="Veg" /><font color="green">   VEG</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="recipeType"
-									value="Non-Veg" />
-								<button class="btn btn-danger veggie" disabled>Non-Veg</button>
-							</label>
+							<label><form:radiobutton  path="recipeType"
+									value="Non-Veg" /><font color="red">   NON-VEG</font></label>
 						</div>
 					</th>
 					<th></th>
 					<th></th>
 					<th></th>
-					<th></th>
 				</tr>
-			</table>
-			<table class="table">
 				<tr>
 					<th>Cuisine</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisine"
-									value="Indian" />
-								<button class="btn btn-info veggie" disabled>Indian</button></label>
+							<label><form:radiobutton path="cuisine"
+									value="Indian" /><font>   Indian</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisine"
-									value="American" />
-								<button class="btn btn-info veggie" disabled>American</button></label>
+							<label><form:radiobutton path="cuisine"
+									value="American" /><font>   American</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisine"
-									value="Italian" />
-								<button class="btn btn-info veggie" disabled>Italian</button></label>
+							<label><form:radiobutton path="cuisine"
+									value="Italian" /><font>   Italian</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisine"
-									value="Chinese" />
-								<button class="btn btn-info veggie" disabled>Chinese</button></label>
+							<label><form:radiobutton path="cuisine"
+									value="Chinese" /><font>   Chinese</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisine"
-									value="French" />
-								<button class="btn btn-info veggie" disabled>French</button></label>
+							<label><form:radiobutton path="cuisine"
+									value="French" />   French</label>
 						</div>
 					</th>
-					<th></th>
 				</tr>
-			</table>
-			<table class="table">
 				<tr>
 					<th>Category</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisineType"
-									value="Starter" />
-								<button class="btn btn-warning veggie" disabled>Starter</button></label>
+							<label><form:radiobutton  path="cuisineType"
+									value="Starter" /><font>   Starter</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisineType"
-									value="Side Dish" />
-								<button class="btn btn-warning veggie" disabled>Side
-									Dish</button></label>
+							<label><form:radiobutton  path="cuisineType"
+									value="Side Dish" /><font>   Side Dish</font></label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisineType"
-									value="Main Course" />
-								<button class="btn btn-warning veggie" disabled>Main
-									Course</button></label>
+							<label><form:radiobutton  path="cuisineType"
+									value="Main Course" />   Main Course</label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisineType"
-									value="Soup" />
-								<button class="btn btn-warning veggie" disabled>Soup</button></label>
+							<label><form:radiobutton  path="cuisineType"
+									value="Soup" />   Soup</label>
 						</div>
 					</th>
 					<th>
 						<div>
-							<label><form:radiobutton class="radio" path="cuisineType"
-									value="Dessert" />
-								<button class="btn btn-warning veggie" disabled>Dessert</button></label>
+							<label><form:radiobutton path="cuisineType"
+									value="Dessert" />   Dessert</label>
 						</div>
 					</th>
-					<th></th>
 				</tr>
 			</table>
 			<button class="btn btn-primary col-sm-2 search">SEARCH</button>
@@ -286,7 +257,7 @@ img {
 
 
 
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+	
 	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script
 		src="webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"></script>

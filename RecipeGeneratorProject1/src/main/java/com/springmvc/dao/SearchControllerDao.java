@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.springmvc.model.Ingredients;
 import com.springmvc.model.Recipe;
 import com.springmvc.model.User;
 
@@ -48,17 +49,45 @@ public class SearchControllerDao {
 
 		});
 	}
+	
+	public Recipe validateRecipeName(String recipeTitle) {
+		// TODO Auto-generated method stub
+		List<Recipe> recipeList = new ArrayList<>();
+		// Recipe recipe=new Recipe();
+		recipeList = getAllRecipes();
+		for (Recipe r : recipeList) {
+			if (r.getRecipeTitle().equalsIgnoreCase(recipeTitle))
+				return r;
+		}
+		return null;
 
-	/*
-	 * public String validateRecipeName(String recipeTitle) {
-	 * 
-	 * String sql = "select details from recipe where recipe_title='" + recipeTitle
-	 * + "'";
-	 * 
-	 * return jdbcTemplate.queryForObject( sql, String.class);
-	 * 
-	 * }
-	 */
+	}
+
+	public List<Ingredients> getIngredientList(){
+		List<Ingredients> ingredientList=new ArrayList<Ingredients>();
+		ingredientList=jdbcTemplate.query("Select * from ingredients", new RowMapper<Ingredients>(){
+			public Ingredients mapRow(ResultSet rs, int row) throws SQLException {
+				Ingredients ingredient=new Ingredients();
+				ingredient.setIngredientId(rs.getInt(1));
+				ingredient.setIngredientName(rs.getString(2));
+				ingredient.setIngredientType(rs.getString(3));
+				ingredient.setCategory(rs.getString(4));
+				return ingredient;
+			}
+		});
+		return ingredientList;
+	}
+	
+	public List<String> getIngredientNameList(){
+		List<Ingredients> ing=new ArrayList<Ingredients>();
+		List<String> ingredientNameList=new ArrayList<>();
+		ing=getIngredientList();
+		for(Ingredients i:ing) {
+			ingredientNameList.add(i.getIngredientName());
+		}
+		return ingredientNameList;
+	}
+	
 	public List<Recipe> showRecipeDetails(List<String> ingredientName) {
 		String inSql = ingredientName.stream().map(s -> "'" + s + "'").collect(Collectors.joining(", "));
 		String query = String.format(
@@ -86,20 +115,7 @@ public class SearchControllerDao {
 		});
 		return recipeList;
 	}
-
-	public Recipe validateRecipeName(String recipeTitle) {
-		// TODO Auto-generated method stub
-		List<Recipe> recipeList = new ArrayList<>();
-		// Recipe recipe=new Recipe();
-		recipeList = getAllRecipes();
-		for (Recipe r : recipeList) {
-			if (r.getRecipeTitle().equalsIgnoreCase(recipeTitle))
-				return r;
-		}
-		return null;
-
-	}
-
+   
 	public List<Recipe> fetchRecipes(Recipe recipe) {
 		StringBuilder query = new StringBuilder("select r.recipe_id, r.recipe_title, r.cuisine, r.cuisine_type, r.details, r.recipe_type, r.recipe_image "
 				+ "from recipe r ");
@@ -116,8 +132,9 @@ public class SearchControllerDao {
 			query.append("AND r.cuisine = '" + recipe.getCuisine()+ "' ");
 		}
 		if(recipe.getCuisineType()!=null) {
-			query.append("AND r.cuisine_type= '" + recipe.getCuisineType() + "'");
+			query.append("AND r.cuisine_type= '" + recipe.getCuisineType() + "' ");
 		}
+	    query.append("group by r.recipe_id");
 		List<Recipe> recipeList = new ArrayList<>();
 		recipeList = jdbcTemplate.query(query.toString(), new RowMapper<Recipe>() {
 
