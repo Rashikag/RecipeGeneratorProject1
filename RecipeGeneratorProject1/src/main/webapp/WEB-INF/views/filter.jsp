@@ -11,6 +11,11 @@
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
 <style>
+body
+{ background:url('https://images.unsplash.com/photo-1564851287875-fb73b71f0e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80') fixed no-repeat;
+	background-size: cover;
+	background-position: center;
+}
 .navbar-inverse .navbar-brand {
 	font-family: Coiny;
 	color: #eeefff;
@@ -51,19 +56,6 @@
 	margin-left: 100px;
 }
 
-.table {
-	margin-top: 50px;
-	margin-bottom: -40px;
-}
-
-tr {
-	height: 40px;
-}
-
-.dropdown {
-	margin-top: 7px;
-	margin-left: 7px;
-}
 
 .start {
 	padding-top: 80px;
@@ -71,12 +63,16 @@ tr {
 	font-size: 2.5em;
 	color: #3b5323;
 }
-
-.search {
-	margin-left: 480px;
-	margin-top: 80px;
+.label-text{
+	font-weight: normal;
 }
-
+.error{
+color:#dc143c;
+font-size:20px;
+font-family:  Acme ;
+margin-left:180px;
+padding-left:20px;
+}
 
 </style>
 </head>
@@ -105,159 +101,93 @@ tr {
 	<form:form action="/filter" method="POST" commandName="recipe">
 		<div class="container">
 			<p class="start">Welcome to the Pantry!!</p>
-			<table class="table">
-				<tr>
-					<th>Ingredients</th>
-					<th><form:select class="dropdown col-sm-12" path="ingredientNameList" multiple="true" required="true">
+			<div class="container well">
+				<div style="padding-bottom: 40px">
+				<div class="form-row">
+					<label for="ingredient">Ingredients</label>
+					<form:select id="ingredient" class="custom-select col-md-12 form-control" path="ingredientNameList" multiple="true" required="true">
 							<form:option value="" label="Select" />
 							<form:options items="${ingredientList}" />
-						</form:select></th>
-						<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<tr> 
-					<th>Veg/Non-Veg</th>
-					<th>
-						<div >
-							<label><form:radiobutton  path="recipeType"
-									value="Veg" /><font color="green">   VEG</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton  path="recipeType"
-									value="Non-Veg" /><font color="red">   NON-VEG</font></label>
-						</div>
-					</th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<tr>
-					<th>Cuisine</th>
-					<th>
-						<div>
-							<label><form:radiobutton path="cuisine"
-									value="Indian" /><font>   Indian</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton path="cuisine"
-									value="American" /><font>   American</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton path="cuisine"
-									value="Italian" /><font>   Italian</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton path="cuisine"
-									value="Chinese" /><font>   Chinese</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton path="cuisine"
-									value="French" />   French</label>
-						</div>
-					</th>
-				</tr>
-				<tr>
-					<th>Category</th>
-					<th>
-						<div>
-							<label><form:radiobutton  path="cuisineType"
-									value="Starter" /><font>   Starter</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton  path="cuisineType"
-									value="Side Dish" /><font>   Side Dish</font></label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton  path="cuisineType"
-									value="Main Course" />   Main Course</label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton  path="cuisineType"
-									value="Soup" />   Soup</label>
-						</div>
-					</th>
-					<th>
-						<div>
-							<label><form:radiobutton path="cuisineType"
-									value="Dessert" />   Dessert</label>
-						</div>
-					</th>
-				</tr>
-			</table>
-			<button class="btn btn-primary col-sm-2 search">SEARCH</button>
-		</div>
-	</form:form>
-	<div id="carousel-example-generic" class="carousel slide"
-		data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#carousel-example-generic" data-slide-to="0"
-				class="active"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-		</ol>
-		<!--  -->
-		<!-- Wrapper for slides
-    
-   -->
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<img
-					src="https://images.unsplash.com/photo-1552590635-e94502090862?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-					width="700" height="50">
+						</form:select>
+				</div>
 			</div>
-			<div class="item">
-				<img
-					src="https://images.unsplash.com/photo-1543826173-cfe2ca17577d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-					width="700" height="50">
-			</div>
-			<div class="item">
-				<img
-					src="https://images.unsplash.com/photo-1512003867696-6d5ce6835040?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-					width="700" height="50">
-			</div>
-			<div class="item">
-				<img
-					src="https://images.unsplash.com/photo-1526991204058-9d45349da374?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-					width="700" height="50">
+				<div style="margin-top: 60px">
+				<div class="form-row">
+					<div class="col-md-4">
+						<label for="recipeType" class="col-md-6" >Recipe Type</label>
+						<div class="col-md-6">
+						<div class="custom-control custom-radio custom-control-inline" id="recipeType">
+						<form:radiobutton path="recipeType"  id="customRadioInline1"  cssClass="custom-control-input" value="Veg"></form:radiobutton>
+						<label class="custom-control-label label-text" for="customRadioInline1" style="color:green">Veg</label>
+					</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="recipeType"  id="customRadioInline2"  cssClass="custom-control-input" value="Non-Veg"></form:radiobutton>
+							<label class="custom-control-label label-text" for="customRadioInline2" style="color: red">Non-Veg</label>
+						</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<label for="cuisine" class="col-md-6">Cuisine</label>
+						<div class="col-md-6">
+						<div class="custom-control custom-radio custom-control-inline" id="cuisine">
+							<form:radiobutton path="cuisine"  id="cuisine1" cssClass="custom-control-input" value="Indian"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisine1" >Indian</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisine"  id="cuisine2"  cssClass="custom-control-input" value="American"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisine2" >American</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisine"  id="cuisine3"  cssClass="custom-control-input" value="Italian"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisine3" >Italian</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisine"  id="cuisine4" cssClass="custom-control-input" value="Chinese"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisine4" >Chinese</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisine"  id="cuisine5"  cssClass="custom-control-input" value="French"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisine5" >French</label>
+						</div>
+						</div>
+
+					</div>
+					<div class="col-md-4">
+						<label for="cuisineType" class="col-md-6">Cuisine Type</label>
+						<div class="col-md-6">
+						<div class="custom-control custom-radio custom-control-inline" id="cuisineType">
+							<form:radiobutton path="cuisineType"  id="cuisineType1" cssClass="custom-control-input" value="Starter"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisineType1" >Starter</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisineType"  id="cuisineType2"  cssClass="custom-control-input" value="Side Dish"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisineType2" >Side Dish</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisineType"  id="cuisineType3"  cssClass="custom-control-input" value="Main Course"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisineType3" >Main Course</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisineType"  id="cuisineType4" cssClass="custom-control-input" value="Soup"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisineType4" >Soup</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<form:radiobutton path="cuisineType"  id="cuisineType5"  cssClass="custom-control-input" value="Dessert"></form:radiobutton>
+							<label class="custom-control-label label-text" for="cuisineType5" >Dessert</label>
+						</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			<div class="col-md-12">
+			<button class="btn btn-primary col-sm-2">SEARCH</button>
+			<div class="error">
+            <p >${errorMsg}</p>
+            </div>
 			</div>
 		</div>
-
-		<!-- Controls -->
-		<a class="left carousel-control" href="#carousel-example-generic"
-			role="button" data-slide="prev"> <span
-			class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
-			class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#carousel-example-generic"
-			role="button" data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-
-
-
-
-	
+		</div>
+	</form:form>	
 	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script
 		src="webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"></script>

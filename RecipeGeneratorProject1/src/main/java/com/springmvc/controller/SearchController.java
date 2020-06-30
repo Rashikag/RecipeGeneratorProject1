@@ -44,7 +44,7 @@ public class SearchController {
 	}
     
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
-	public String showPage(Model model) {
+	public String showFilterPage(ModelMap model) {
 		//todo-addingredientlist
 			Recipe recipe=new Recipe();
 			model.addAttribute("recipe", recipe);
@@ -64,7 +64,8 @@ public class SearchController {
 		model.addAttribute("recipe",recipe);
 		List<Recipe> allRecipeDetail = searchControllerDao.fetchRecipes(recipe);
 		if(allRecipeDetail==null || allRecipeDetail.isEmpty()) {
-			return "filter";
+			model.put("errorMsg","No results found! Try Again!");
+			return showFilterPage(model);
 		}
 		model.addAttribute("allRecipeDetails", allRecipeDetail);//todo	
 		return showRecipePage(model);
