@@ -91,7 +91,8 @@
 					<form class="cred" action="/login" method="POST">
 						Hello <input name="name" type="text" class="username"
 									 value=${name } readonly>
-						<button type="button" class="btn btn-warning" type="submit">Logout</button>
+						 <a href="/filter"><button type="button" class="btn btn-warning" type="submit">Back</button></a>
+						<a href="/login"><button type="button" class="btn btn-warning" type="submit">Logout</button></a>
 					</form>
 				</div>
 			</ul>
