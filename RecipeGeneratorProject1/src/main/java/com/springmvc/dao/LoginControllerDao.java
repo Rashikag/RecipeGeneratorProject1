@@ -5,12 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.springmvc.model.User;
@@ -19,14 +17,13 @@ import com.springmvc.model.User;
 public class LoginControllerDao {
 
 	@Autowired
-	DataSource dataSource;
+	DatabaseConfig databaseConfig;
 
 	JdbcTemplate jdbcTemplate;
 
 	@Autowired
-	public LoginControllerDao(DataSource dataSource) {
-		this.dataSource = dataSource;
-		jdbcTemplate = new JdbcTemplate(this.dataSource);
+	public LoginControllerDao(DatabaseConfig databaseConfig) {
+		jdbcTemplate = new JdbcTemplate(databaseConfig.getDataSource());
 	}
 
 	public boolean validateLogin(String name, String password) {

@@ -16,20 +16,18 @@ import org.springframework.stereotype.Repository;
 
 import com.springmvc.model.Ingredients;
 import com.springmvc.model.Recipe;
-import com.springmvc.model.User;
 
 @Repository
 public class SearchControllerDao {
 
-	@Autowired
-	DataSource dataSource;
+    @Autowired
+    DatabaseConfig databaseConfig;
 
 	JdbcTemplate jdbcTemplate;
 
 	@Autowired
-	public SearchControllerDao(DataSource dataSource) {
-		this.dataSource = dataSource;
-		jdbcTemplate = new JdbcTemplate(this.dataSource);
+	public SearchControllerDao(DatabaseConfig databaseConfig) {
+		jdbcTemplate = new JdbcTemplate(databaseConfig.getDataSource());
 	}
 
 	public List<Recipe> getAllRecipes() {
