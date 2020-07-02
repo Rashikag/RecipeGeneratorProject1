@@ -42,7 +42,7 @@ public class SearchControllerTest {
 		Mockito.when(searchControllerDao.getIngredientNameList()).thenReturn(ingredient);
 		String result = searchController.showFilterPage(model);
 		assert (result == "home");
-		assert (((HashMap<String, Object>) model.get("ingredientList")).size() != 0);
+		assert ( model.get("ingredientList") != null);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -55,7 +55,7 @@ public class SearchControllerTest {
 		Mockito.when(searchControllerDao.fetchRecipes(r)).thenReturn(recipes);
 		String result = searchController.recipeDetails(r, model);
 		assert (result == "recipe");
-		assert (((HashMap<String, Object>) model.get("allRecipeDetail")).size() != 0);
+		assert ( model.get("allRecipeDetails") != null);
 	}
 
 	@Test
