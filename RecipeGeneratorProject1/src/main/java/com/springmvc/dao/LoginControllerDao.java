@@ -25,7 +25,12 @@ public class LoginControllerDao {
 	public LoginControllerDao(DatabaseConfig databaseConfig) {
 		jdbcTemplate = new JdbcTemplate(databaseConfig.getDataSource());
 	}
-
+  /**
+   * check login credentials 
+   * @param name
+   * @param password
+   * @return
+   */
 	public boolean validateLogin(String name, String password) {
 		List<User> finalUser = new ArrayList<>();
 		finalUser = getAllUsers();
@@ -35,7 +40,10 @@ public class LoginControllerDao {
 		}
 		return false;
 	}
-
+  /**
+   * get all user objects in a list
+   * @return
+   */
 	public List<User> getAllUsers() {
 		return jdbcTemplate.query("select * from User_detail", new RowMapper<User>() {
 
@@ -51,6 +59,13 @@ public class LoginControllerDao {
 		});
 	}
 
+	/**
+	 * insert user details in the database
+	 * @param name
+	 * @param password
+	 * @param gmail
+	 * @return
+	 */
 	public int insertUser(String name, String password, String gmail) {
 		User user = new User();
 		user.setUserName(name);

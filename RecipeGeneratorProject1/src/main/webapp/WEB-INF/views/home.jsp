@@ -12,7 +12,7 @@
 	rel="stylesheet">
 <style>
 body
-{ background:url('https://images.unsplash.com/photo-1564851287875-fb73b71f0e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80') fixed no-repeat;
+{ background:url('https://images.unsplash.com/photo-1443808709349-353c8b390400?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80') fixed no-repeat;
 	background-size: cover;
 	background-position: center;
 }
@@ -42,15 +42,6 @@ body
 	margin-left: -1px;
 }
 
-#carousel-example-generic {
-	margin-left: 220px;
-	margin-top: 60px;
-	height: 290px;
-	width: 920px;
-	position: center;
-	margin-bottom: 60px;
-}
-
 .item {
 	height: 290px;
 	margin-left: 100px;
@@ -61,7 +52,7 @@ body
 	padding-top: 80px;
 	font-family: Alegreya;
 	font-size: 2.5em;
-	color: #3b5323;
+color:white;
 }
 .label-text{
 	font-weight: normal;
@@ -82,14 +73,13 @@ padding-left:20px;
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#"> RecipeGenerator</a>
 			</div>
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
+			<div>
 				<ul class="nav navbar-nav navbar-right">
 					<div>
 						<form class="cred" action="/login" method="POST">
 							Hello <input name="name" type="text" class="username"
 								value=${name } readonly>
-							<button type="button" class="btn btn-warning" type="submit">Logout</button>
+							<a href="/login"><button type="button" class="btn btn-warning" type="submit">Logout</button></a>
 						</form>
 					</div>
 				</ul>
@@ -98,7 +88,7 @@ padding-left:20px;
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<form:form action="/filter" method="POST" commandName="recipe">
+	<form:form action="/home" method="POST" commandName="recipe">
 		<div class="container">
 			<p class="start">Welcome to the Pantry!!</p>
 			<div class="container well">

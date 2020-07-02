@@ -19,11 +19,22 @@ public class LoginController  {
 	@Autowired
 	LoginControllerDao loginControllerDao;
 	
+	/**
+	 * login screen
+	 * @return 
+	 */
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String showLoginPage(){
 		return "login";
 	}
 	
+	/**
+	 * Takes in user input, validates it and redirects to home page
+	 * @param name
+	 * @param password
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String handleLoginRequest(@RequestParam String name,@RequestParam String password,ModelMap model){
 		if(!loginControllerDao.validateLogin(name, password)) {
@@ -31,10 +42,16 @@ public class LoginController  {
 			return "login";
 		}
 		model.put("name",name);
-		return "redirect:/filter";
+		return "redirect:/home";
 	}
-	
-	@RequestMapping(value="/signup",method=RequestMethod.POST)//produces=MediaType.APPLICATION_JSON_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
+	/**
+	 * sign up and redirect to login page
+	 * @param username
+	 * @param password
+	 * @param gmail
+	 * @return
+	 */
+	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public String addUser(@RequestParam String username,@RequestParam String password,@RequestParam String gmail){
 		loginControllerDao.insertUser(username,password,gmail);
 	    return "login";

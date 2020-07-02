@@ -10,12 +10,12 @@ public class DatabaseConfig {
 	@Bean
 	public DriverManagerDataSource getDataSource() {
 
-		DriverManagerDataSource bds = new DriverManagerDataSource();
-		bds.setDriverClassName("com.mysql.jdbc.Driver");
-		bds.setUrl("jdbc:mysql://localhost:3306/recipegenerator");
-		bds.setUsername("root");
-		bds.setPassword("root");
+		DriverManagerDataSource datasource = new DriverManagerDataSource();
+		datasource.setDriverClassName("com.mysql.jdbc.Driver");
+		datasource.setUrl("jdbc:mysql://localhost:3306/recipegenerator");
+		datasource.setUsername("root");
+		datasource.setPassword("Rashika@123");
 
-		return bds;
+		return datasource;
 	}
 }
